@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <colaborador xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Nome>Juliano</Nome>
-  <Cargo>estagiario</Cargo>
+  <Nome>jhoan</Nome>
+  <Cargo>analisata</Cargo>
   <Obrigacoes>
     <Tarefas>
-      <Nome-tarefa>estudar</Nome-tarefa>
-      <Descrição_x0020_da_x0020_tarefa>manter conhecimentos afiados</Descrição_x0020_da_x0020_tarefa>
-    </Tarefas>
-    <Tarefas>
-      <Nome-tarefa>aprender </Nome-tarefa>
-      <Descrição_x0020_da_x0020_tarefa>ter foco nas demandas e ensinamentos passados</Descrição_x0020_da_x0020_tarefa>
-    </Tarefas>
-    <Tarefas>
-      <Nome-tarefa>aplicar</Nome-tarefa>
-      <Descrição_x0020_da_x0020_tarefa>Conceitos apresentados devem ser aplicados para desenvolvimento pessoal</Descrição_x0020_da_x0020_tarefa>
+      <Nome-tarefa>analisar</Nome-tarefa>
+      <Descrição_x0020_da_x0020_tarefa>exigir demandas</Descrição_x0020_da_x0020_tarefa>
     </Tarefas>
   </Obrigacoes>
 </colaborador>

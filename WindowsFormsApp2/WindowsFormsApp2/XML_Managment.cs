@@ -7,11 +7,13 @@ using System.Xml.Serialization;
 using System.IO;
 using WindowsFormsApp2;
 using System.Windows.Forms;
+using Postgre.Conection;
 
 namespace Xml.Manegment
 {
     public class Tarefas_XML
     {
+
         [XmlElement("Nome-tarefa")]
         public string obrig { get; set; }
 
@@ -20,7 +22,6 @@ namespace Xml.Manegment
 
         public Tarefas_XML()
         {
-
         }
 
         public Tarefas_XML(string obrigacao, string Descricao)
@@ -53,6 +54,12 @@ namespace Xml.Manegment
 
     public class Controle_XML
     {
+        private PostgreConection Conexao_postgre;
+        public Controle_XML(PostgreConection conn)
+        {
+            Conexao_postgre = conn;
+        }
+
         public bool criar_xml(Form3 form)
         {
             Colaborador XML_colaborador = new Colaborador
@@ -90,7 +97,7 @@ namespace Xml.Manegment
                 {
                     serializer.Serialize(writer, XML_colaborador);
                 }
-                
+
                 MessageBox.Show("Arquivo XML 'Colaborador.xml' criado e salvo com sucesso!",
                                 "Sucesso na Serialização",
                                 MessageBoxButtons.OK,
@@ -127,7 +134,7 @@ Cargo: {colaborador.Cargo}
 ";
                 int i = 1;
 
-                foreach(Tarefas_XML tasks in colaborador.ListaObrigacoes)
+                foreach (Tarefas_XML tasks in colaborador.ListaObrigacoes)
                 {
                     form.XML_Read_TextBox.Text =
                         form.XML_Read_TextBox.Text + $@"    -- {i}° Tarefa:
@@ -138,6 +145,26 @@ Cargo: {colaborador.Cargo}
                     i++;
                 }
             }
+        }
+
+        public void call_inserir_XML()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Colaborador));
+            List<string> lista_de_obrigacoes = new List<string>();
+
+            using (StreamReader reader = new StreamReader("Colaborador.xml"))
+            {
+                Colaborador colaborador = (Colaborador)serializer.Deserialize(reader);
+
+                foreach (Tarefas_XML tasks in colaborador.ListaObrigacoes)
+                {
+                    lista_de_obrigacoes.Add(tasks.obrig);
+                    lista_de_obrigacoes.Add(tasks.Desc_tarefa);
+                }
+
+
+                Conexao_postgre.insert_XML(colaborador.Nome, colaborador.Cargo, lista_de_obrigacoes);
+            }
         }
     }
 }

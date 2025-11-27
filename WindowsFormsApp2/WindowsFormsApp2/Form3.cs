@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xml.Manegment;
+using Postgre.Conection;
 
 namespace WindowsFormsApp2
 {
     public partial class Form3 : Form
     {
-        private Controle_XML control = new Controle_XML();
-        public Form3()
+        private PostgreConection Conexao_postgre;
+        private Controle_XML control;
+        public Form3(PostgreConection conn)
         {
             InitializeComponent();
+            this.Conexao_postgre = conn;
+            control = new Controle_XML(Conexao_postgre);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,6 +29,7 @@ namespace WindowsFormsApp2
             if(control.criar_xml(this))
             {
                 control.Show_XML(this);
+                control.call_inserir_XML();
             }
         }
 

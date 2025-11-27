@@ -51,14 +51,14 @@ namespace WindowsFormsApp2
 
         private void Xml_Button_Click(object sender, EventArgs e)
         {
-            Form3 form_xml = new Form3();
+            Form3 form_xml = new Form3(Conexao_postgres);
 
             form_xml.ShowDialog();
         }
 
         private void Chamada_api_Button_Click(object sender, EventArgs e)
         {
-            Form4 form_api = new Form4();
+            Form4 form_api = new Form4(Conexao_postgres);
 
             form_api.ShowDialog();
         }
