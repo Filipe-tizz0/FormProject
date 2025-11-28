@@ -55,19 +55,14 @@ namespace Postgre.Conection
             {
                 DataTable dataTable = null;
 
-                // O 'using' garante que a conexão e o comando sejam fechados corretamente
-                //NpgsqlConnection conn = tho_postgres;
-
 
                 NpgsqlCommand cmd = new NpgsqlCommand(query, Conexao_postgres);
 
                 if (query.Trim().ToUpper().StartsWith("SELECT"))
                 {
-                    // É uma consulta de leitura (SELECT)
                     dataTable = new DataTable();
                     NpgsqlDataReader reader = cmd.ExecuteReader();
 
-                    // Carrega os resultados no DataTable
                     dataTable.Load(reader);
 
                     form.datagrid_result.DataSource = dataTable;
@@ -75,7 +70,6 @@ namespace Postgre.Conection
                 }
                 else
                 {
-                    // É uma operação de modificação (INSERT, UPDATE, DELETE)
                     int rowsAffected = cmd.ExecuteNonQuery();
                     MessageBox.Show($"Comando executado. {rowsAffected} linha(s) afetada(s).");
                     form.datagrid_result.DataSource = null;

@@ -62,5 +62,12 @@ namespace WindowsFormsApp2
 
             form_api.ShowDialog();
         }
+
+        private void Querys_prontas_Button_Click(object sender, EventArgs e)
+        {
+            Form5 form_querys = new Form5(Conexao_postgres, this);
+
+            form_querys.ShowDialog();
+        }
     }
 }

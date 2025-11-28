@@ -162,8 +162,13 @@ Cargo: {colaborador.Cargo}
                     lista_de_obrigacoes.Add(tasks.Desc_tarefa);
                 }
 
-
-                Conexao_postgre.insert_XML(colaborador.Nome, colaborador.Cargo, lista_de_obrigacoes);
+                if(Conexao_postgre != null)
+                {
+                    Conexao_postgre.insert_XML(colaborador.Nome, colaborador.Cargo, lista_de_obrigacoes);
+                } else
+                {
+                    MessageBox.Show("Não foi posspivel salvar pois ainda não tem conexão");
+                }
             }
         }
     }

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <colaborador xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Nome>jhoan</Nome>
-  <Cargo>analisata</Cargo>
+  <Nome>conectado</Nome>
+  <Cargo>tem conexão mermao</Cargo>
   <Obrigacoes>
     <Tarefas>
-      <Nome-tarefa>analisar</Nome-tarefa>
-      <Descrição_x0020_da_x0020_tarefa>exigir demandas</Descrição_x0020_da_x0020_tarefa>
+      <Nome-tarefa>tem </Nome-tarefa>
+      <Descrição_x0020_da_x0020_tarefa>agora tem conexao</Descrição_x0020_da_x0020_tarefa>
+    </Tarefas>
+    <Tarefas>
+      <Nome-tarefa>con</Nome-tarefa>
+      <Descrição_x0020_da_x0020_tarefa>agora tem conexao</Descrição_x0020_da_x0020_tarefa>
+    </Tarefas>
+    <Tarefas>
+      <Nome-tarefa>exao</Nome-tarefa>
+      <Descrição_x0020_da_x0020_tarefa>agora tem conexao</Descrição_x0020_da_x0020_tarefa>
     </Tarefas>
   </Obrigacoes>
 </colaborador>
